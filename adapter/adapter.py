@@ -1,63 +1,68 @@
 from telicent_lib.sinks import KafkaSink
-from telicent_lib import AutomaticAdapter, Record, RecordUtils
+from telicent_lib import AutomaticAdapter, Record, RecordUtils, SimpleDataSet
 from telicent_lib.config import Configurator
 import json
+import csv
 from dotenv import load_dotenv
 from typing import Iterable
-# from telicent_lib.logging import CoreLoggerFactory
-# from logging import StreamHandler
+from labels import create_security_label_using_TelicentSCV2, create_security_label_using_idh
 
 
-# Mapper Configuration
+# Adapter Configuration
 load_dotenv()
 config = Configurator()
 broker = config.get("BOOTSTRAP_SERVERS", required = True)
 target_topic = config.get(
-    "TARGET_TOPIC",
-    required=True,
+    "TARGET_TOPIC", required=True,
     description="Specifies the Kafka topic the adaptor pushes its output to",
 )
-name = config.get(
-    "PRODUCER_NAME", required=True, description="Specifies the name of the producer"
-)
-source_name = config.get(
-    "SOURCE_NAME",
-    required=True,
-    description="Specifies the source that the data has originated from",
+adapter_name = config.get(
+    "ADAPTER_NAME", required=True, 
+    description="Specifies the name of the adapter"
 )
 
-# logger = CoreLoggerFactory.get_logger(__name__)
-# logger.logger.addHandler(StreamHandler())
-
-# Create and process records
-def create_record(data, security_labels):
+# Create a Telicent CORE record
+def create_core_record(data, security_label):
+    headers = RecordUtils.to_headers(
+        {
+            "Content-Type": "mine/type", #TODO: replace with MIME type of the data payload
+            "Security-Label": security_label,
+        }
+    )
     return Record(
-        RecordUtils.to_headers(
-            {
-                "Content-Type": {{add_content_type}},
-                "Data-Source": source_name,
-                "Data-Producer": name,
-                "Security-Label": security_labels,
-            }
-        ),
+        headers, 
         None,
-        data,
+        data, 
     )
 
-def generate_records() -> Iterable[Record]:
-    # add logic associated to the data you are ingested
-    # this could be getting data from a file
-    # or getting data from an external system or API
-    yield create_record({{some_data}}, {{a_security_label}})
+# process data and 
+def generate_records_from_source() -> Iterable[Record]:
+    """
+    TODO: replace with logic associated to sourcing and preparing
+    your data for ingest. This could be getting data from a file
+    or getting data from an external system or API
+    """
+    yield create_core_record(
+        data = None,        # TODO: replace with the results of the above data sourcing
+        security_label="*"  # TODO: * allows anyone access to this data, replace with better label
+                            # see labels.py on how to create better label
+    )
 
 
 # Create a sink and adapter
 sink = KafkaSink(topic = target_topic)
+dataset = SimpleDataSet(
+    dataset_id='my-data-set',    # TODO: replace with an ID associated to your data source
+    title='myfile.csv',          # TODO: replace with human-readable to denote data source
+    source_mime_type='mime/type' # TODO: replace with source data's MIME type, which may differ from 
+                                 # the Content-Type above if transformed before Kafka ingest
+)
 adapter = AutomaticAdapter(
+    name=adapter_name,
     target=sink, 
-    adapter_function=generate_records, 
-    name=name, 
+    adapter_function=generate_records_from_source, 
+    dataset=dataset
 )
 
-# Call run() to run the action
+# Call run() to run the adapter
 adapter.run()
