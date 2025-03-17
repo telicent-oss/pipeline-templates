@@ -11,12 +11,12 @@ from labels import create_security_label_using_TelicentSCV2, create_security_lab
 # Adapter Configuration
 load_dotenv()
 config = Configurator()
-broker = config.get("BOOTSTRAP_SERVERS", required = True)
-target_topic = config.get(
+BROKER = config.get("BOOTSTRAP_SERVERS", required = True)
+TARGET_TOPIC = config.get(
     "TARGET_TOPIC", required=True,
     description="Specifies the Kafka topic the adaptor pushes its output to",
 )
-adapter_name = config.get(
+ADAPTER_NAME = config.get(
     "ADAPTER_NAME", required=True, 
     description="Specifies the name of the adapter"
 )
@@ -50,7 +50,7 @@ def generate_records_from_source() -> Iterable[Record]:
 
 
 # Create a sink and adapter
-target = KafkaSink(topic = target_topic)
+target = KafkaSink(topic = TARGET_TOPIC)
 dataset = SimpleDataSet(
     dataset_id='my-data-set',    # TODO: replace with an ID associated to your data source
     title='myfile.csv',          # TODO: replace with human-readable to denote data source
@@ -58,7 +58,7 @@ dataset = SimpleDataSet(
                                  # the Content-Type above if transformed before Kafka ingest
 )
 adapter = AutomaticAdapter(
-    name=adapter_name,
+    name=ADAPTER_NAME,
     target=target, 
     adapter_function=generate_records_from_source, 
     dataset=dataset

@@ -10,10 +10,10 @@ from mapping_function import map_func
 load_dotenv()
 # Mapper Configuration
 config = Configurator()
-broker = config.get("BOOTSTRAP_SERVERS", required = True)
-source_topic = config.get("SOURCE_TOPIC", required=True,
+BROKER = config.get("BOOTSTRAP_SERVERS", required = True)
+SOURCE_TOPIC = config.get("SOURCE_TOPIC", required=True,
                     description="Specifies the Kafka topic the mapper ingests from.")
-target_topic = config.get("TARGET_TOPIC", required=True,
+TARGET_TOPIC = config.get("TARGET_TOPIC", required=True,
                     description="Specifies the Kafka topic the mapper pushes its output to")
 
 # Create a new set of headers based on the source headers
@@ -45,12 +45,14 @@ def mapping_function(record: Record) ->  Record | list[Record] | None:
     except Exception as e :
         print("Error mapping object with exception {exp}".format(exp=e)) 
 
-source = KafkaSource(topic=source_topic)
-target = KafkaSink(topic=target_topic)
-mapper = Mapper(
-    source = source, 
-    target = target, 
-    map_function = mapping_function,
-    name= f"{source} to {target} Mapper"
-)
-mapper.run()
+if __name__ == "__main__":
+
+    source = KafkaSource(topic=SOURCE_TOPIC)
+    target = KafkaSink(topic=TARGET_TOPIC)
+    mapper = Mapper(
+        source = source, 
+        target = target, 
+        map_function = mapping_function,
+        name= f"{SOURCE_TOPIC} to {TARGET_TOPIC} Mapper"
+    )
+    mapper.run()

@@ -1,0 +1,13 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ies: <http://ies.data.gov.uk/ontology/ies4#> .
+@prefix ont: <http://example.com/rdf/your-ontology#> . # TODO replace with your desired namespace
+
+
+# For each new class you want to add, you must specific that..
+# an instance of an rdfs:Class e.g.
+# ont:MagicWand       rdf:type                rdfs:Class . 
+# what it is a subclasses of. You can have 1 to many of these subClass relations e.g.
+# ont:MagicWand       rdfs:subClassOf         ies:Device .
+# we also provide a human-readable label for the class
+# ont:MagicWand       rdfs:label              "Magic Wand" .
