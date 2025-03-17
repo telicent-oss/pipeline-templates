@@ -50,7 +50,7 @@ def generate_records_from_source() -> Iterable[Record]:
 
 
 # Create a sink and adapter
-sink = KafkaSink(topic = target_topic)
+target = KafkaSink(topic = target_topic)
 dataset = SimpleDataSet(
     dataset_id='my-data-set',    # TODO: replace with an ID associated to your data source
     title='myfile.csv',          # TODO: replace with human-readable to denote data source
@@ -59,7 +59,7 @@ dataset = SimpleDataSet(
 )
 adapter = AutomaticAdapter(
     name=adapter_name,
-    target=sink, 
+    target=target, 
     adapter_function=generate_records_from_source, 
     dataset=dataset
 )
