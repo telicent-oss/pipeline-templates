@@ -30,9 +30,9 @@ def create_core_record(data, security_label):
         }
     )
     return Record(
-        headers, 
-        None,
-        data, 
+        headers,# Header of the Record
+        None,   # Key of the Record
+        data,   # Value/Payload of the Record
     )
 
 # process data and 
