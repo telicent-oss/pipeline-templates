@@ -1,11 +1,8 @@
 from telicent_lib.sinks import KafkaSink
 from telicent_lib import AutomaticAdapter, Record, RecordUtils, SimpleDataSet
 from telicent_lib.config import Configurator
-import json
-import csv
 from dotenv import load_dotenv
 from typing import Iterable
-from labels import create_security_label_using_TelicentSCV2, create_security_label_using_idh
 
 
 # Adapter Configuration

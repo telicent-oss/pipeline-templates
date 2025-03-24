@@ -2,7 +2,6 @@ from telicent_lib.sinks import KafkaSink
 from telicent_lib import AutomaticAdapter, Record, RecordUtils
 from telicent_lib.config import Configurator
 from dotenv import load_dotenv
-from typing import Iterable
 import json
 
 # Mapper Configuration

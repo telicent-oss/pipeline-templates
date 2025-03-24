@@ -55,20 +55,3 @@ def create_security_label_using_idh():
     }
     security_label = IDHModel(**idh).build_security_labels()
     return security_label
-
-# def create_security_label_using_idh():
-#     idh = {
-#         "apiVersion": "v1alpha",
-#         "uuid": str(uuid.uuid4()),
-#         "createDate": datetime.now(UTC).isoformat(),
-#         "containsPii": False,
-#         "dataSource": "hp_grown_ups.csv",
-#         "access": {
-#             "classification": "O", # can either be "O", "OS", "S", "TS"
-#             "allowedOrgs": ["MinistryOfMagic", "DepartmentOfMagicVehicles"], # list of strings representing orgs
-#             "allowedNats": ["GBR"], # list of ISO3166-1 alpha-3 code strings (https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3)
-#             "groups": [], # list of strings representing custom AND Groups
-#         },
-#         "ownership": {"originatingOrg": "PlvsUltra"},
-#     }
-#     return IDHModel(**idh).build_security_labels()
