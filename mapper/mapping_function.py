@@ -12,9 +12,10 @@ def map_func(item):
     to create RDF goes.
     """
     telicent_ns = "http://telicent.io/data#"
+    tool = ies.IESTool(mode="rdflib", default_data_namespace=telicent_ns)
+
     csv = StringIO(item)
     df = pl.read_csv(csv)
-    tool = ies.IESTool(mode="rdflib", default_data_namespace=telicent_ns)
 
     # Iterate through each row
     for row in df.to_dicts():
@@ -32,11 +33,6 @@ def map_func(item):
 
         # 3 optional add nice display label with .add_telicent_primary_name()
 
-
     return tool.graph.serialize(format="turtle")
-
-
-
-
 
 
