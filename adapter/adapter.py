@@ -3,7 +3,7 @@ from telicent_lib import AutomaticAdapter, Record, RecordUtils, SimpleDataSet
 from telicent_lib.config import Configurator
 from dotenv import load_dotenv
 from typing import Iterable
-
+from adapter.labels import create_security_label_using_TelicentSCV2
 
 # Adapter Configuration
 load_dotenv()
@@ -17,6 +17,7 @@ ADAPTER_NAME = config.get(
     "ADAPTER_NAME", required=True, 
     description="Specifies the name of the adapter"
 )
+security_label = create_security_label_using_TelicentSCV2()
 
 # Create a Telicent CORE record
 def create_core_record(data, security_label):
@@ -45,7 +46,7 @@ def generate_records_from_source() -> Iterable[Record]:
         csv_content = file.read()
         yield create_core_record(
             data=csv_content,
-            security_label="*"
+            security_label=security_label
         )
 
 # Create a sink and adapter
