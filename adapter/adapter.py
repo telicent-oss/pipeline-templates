@@ -22,7 +22,7 @@ ADAPTER_NAME = config.get(
 def create_core_record(data, security_label):
     headers = RecordUtils.to_headers(
         {
-            "Content-Type": "mine/type", #TODO: replace with MIME type of the data payload
+            "Content-Type": "text/csv",
             "Security-Label": security_label,
         }
     )
@@ -40,21 +40,22 @@ def generate_records_from_source() -> Iterable[Record]:
     your data for ingest. This could be getting data from a file
     or getting data from an external system or API
     """
-    yield create_core_record(
-        data = None,        # TODO: replace with the results of the above data sourcing
-        security_label="*"  # TODO: * allows anyone access to this data, replace with better label
-                            # see labels.py on how to create better label
-    )
-
+    file_path = './adapter/sanctioned_individuals.csv'
+    with open(file_path) as file:
+        csv_content = file.read()
+        yield create_core_record(
+            data=csv_content,
+            security_label="*"
+        )
 
 # Create a sink and adapter
 target = KafkaSink(topic = TARGET_TOPIC)
 dataset = SimpleDataSet(
-    dataset_id='my-data-set',    # TODO: replace with an ID associated to your data source
-    title='myfile.csv',          # TODO: replace with human-readable to denote data source
-    source_mime_type='mime/type' # TODO: replace with source data's MIME type, which may differ from 
-                                 # the Content-Type above if transformed before Kafka ingest
+    dataset_id='sanctions',
+    title='sanctioned_individuals.csv',
+    source_mime_type='text/csv'
 )
+
 adapter = AutomaticAdapter(
     name=ADAPTER_NAME,
     target=target, 
