@@ -32,6 +32,7 @@ def create_core_record(data, security_label):
         data,   # Value/Payload of the Record
     )
 
+
 # process data and 
 def generate_records_from_source() -> Iterable[Record]:
     """
