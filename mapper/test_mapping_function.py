@@ -1,15 +1,17 @@
 # Use this to test the output of your mapping function
-from mapping_function import map_func
+from rdflib import Graph
+from mapper.mapping_function import map_func
 
 
-test_source_data = "your-test-source-data" #TODO replace with representative source data e.g. json, csv etc.
-test_mapped_data = map_func(test_source_data)
-print(test_mapped_data)
+file_path = './adapter/sanctioned_individuals.csv'
 
+with open(file_path) as file:
+    test_source_data = file.read()
+    
 # OPTIONAL:
 # Use the below for testing RDF intended for the knowledge topic
 # your mapped data will be serialised to .ttl/turtle file in the local directory
-# graph = Graph()
-# graph_string = map_func(test_source_data)
-# graph.parse(data=graph_string, format="turtle")
-# graph.serialize(destination="test_mapped_data.ttl", format="turtle")
+graph = Graph()
+mapped_data = map_func(test_source_data)
+graph.parse(data=mapped_data, format="turtle")
+graph.serialize(destination="mapper/test_mapped_data.ttl", format="turtle")
