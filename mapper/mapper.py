@@ -4,7 +4,7 @@ from telicent_lib.sources import KafkaSource
 from telicent_lib.config import Configurator
 from telicent_lib import Mapper, Record, RecordUtils
 from dotenv import load_dotenv
-from mapping_function import map_func
+from mapper.mapping_function import map_func
 
 
 load_dotenv()

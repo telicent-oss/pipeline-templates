@@ -40,11 +40,14 @@ def generate_records_from_source() -> Iterable[Record]:
     your data for ingest. This could be getting data from a file
     or getting data from an external system or API
     """
-    yield create_core_record(
-        data = None,        # TODO: replace with the results of the above data sourcing
-        security_label="*"  # TODO: * allows anyone access to this data, replace with better label
-                            # see labels.py on how to create better label
-    )
+    
+    with open(file_path) as file:
+        csv_content = file.read()
+        yield create_core_record(
+            data = None,        # TODO: replace with the results of the above data sourcing
+            security_label="*"  # TODO: * allows anyone access to this data, replace with better label
+                                # see labels.py on how to create better label
+        )
 
 
 # Create a sink and adapter
