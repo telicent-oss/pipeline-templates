@@ -17,6 +17,7 @@ ADAPTER_NAME = config.get(
     "ADAPTER_NAME", required=True, 
     description="Specifies the name of the adapter"
 )
+# Create the security label
 security_label = create_security_label_using_TelicentSCV2()
 
 # Create a Telicent CORE record
@@ -46,7 +47,7 @@ def generate_records_from_source() -> Iterable[Record]:
         csv_content = file.read()
         yield create_core_record(
             data=csv_content,
-            security_label=security_label
+            security_label="*" # Alternatively use the security_label
         )
 
 # Create a sink and adapter

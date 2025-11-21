@@ -19,20 +19,27 @@ def map_func(item):
 
     # Iterate through each row
     for row in df.to_dicts():
-        # 1 create a person, with given name, surname and date of birth
-        person_id = row.get("unique_id")
         first_name = row.get("first_name")
-        person = ies.Person(
-            tool=tool,
-            uri=telicent_ns+person_id,
-            given_name=first_name
-        )
+        surname = row.get("surname")
+        dob = row.get("date_of_birth")
+        passport_number = row.get("passport_number")
+        person_id = row.get("unique_id")
 
+        # 1 create a person, with given name, surname and date of birth
+        person = ies.Person(tool=tool,
+                            given_name=first_name,
+                            date_of_birth = dob,
+                            surname = surname,
+                            uri=telicent_ns+person_id+"_person"
+                            )
+        
         # 2 add identifier
-        #person.add_identifier 
+        person.add_identifier(passport_number)
 
         # 3 optional add nice display label with .add_telicent_primary_name()
+        person.add_telicent_primary_name(f"Steve {surname}")
 
     return tool.graph.serialize(format="turtle")
+
 
 
