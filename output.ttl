@@ -1,0 +1,463 @@
+@prefix : <http://telicent.io/data#> .
+@prefix ies: <http://ies.data.gov.uk/ontology/ies4#> .
+@prefix iso8601: <http://iso.org/iso8601#> .
+@prefix tont: <http://telicent.io/ontology/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:AQD0119_person_BIRTH_001 a ies:BirthState ;
+    ies:inPeriod iso8601:1970-07-14 ;
+    ies:isStartOf :AQD0119_person .
+
+:AQD0129_person_BIRTH_001 a ies:BirthState ;
+    ies:inPeriod iso8601:1975-11-20 ;
+    ies:isStartOf :AQD0129_person .
+
+:AQD0131_person_BIRTH_001 a ies:BirthState ;
+    ies:inPeriod iso8601:1986-03-09 ;
+    ies:isStartOf :AQD0131_person .
+
+:AQD0171_person_BIRTH_001 a ies:BirthState ;
+    ies:inPeriod iso8601:1966-10-28 ;
+    ies:isStartOf :AQD0171_person .
+
+:AQD0181_person_BIRTH_001 a ies:BirthState ;
+    ies:inPeriod iso8601:1961-11-17 ;
+    ies:isStartOf :AQD0181_person .
+
+:AQD0189_person_BIRTH_001 a ies:BirthState ;
+    ies:inPeriod iso8601:1986-05-09 ;
+    ies:isStartOf :AQD0189_person .
+
+:AQD0204_person_BIRTH_001 a ies:BirthState ;
+    ies:inPeriod iso8601:1973-01-15 ;
+    ies:isStartOf :AQD0204_person .
+
+:AQD0211_person_BIRTH_001 a ies:BirthState ;
+    ies:inPeriod iso8601:1977-10-21 ;
+    ies:isStartOf :AQD0211_person .
+
+:AQD0230_person_BIRTH_001 a ies:BirthState ;
+    ies:inPeriod iso8601:1968-04-03 ;
+    ies:isStartOf :AQD0230_person .
+
+:AQD0239_person_BIRTH_001 a ies:BirthState ;
+    ies:inPeriod iso8601:1974-12-11 ;
+    ies:isStartOf :AQD0239_person .
+
+:AQD0241_person_BIRTH_001 a ies:BirthState ;
+    ies:inPeriod iso8601:1969-02-05 ;
+    ies:isStartOf :AQD0241_person .
+
+:AQD0253_person_BIRTH_001 a ies:BirthState ;
+    ies:inPeriod iso8601:1983-05-10 ;
+    ies:isStartOf :AQD0253_person .
+
+:AQD0256_person_BIRTH_001 a ies:BirthState ;
+    ies:inPeriod iso8601:1964-12-04 ;
+    ies:isStartOf :AQD0256_person .
+
+:AQD0276_person_BIRTH_001 a ies:BirthState ;
+    ies:inPeriod iso8601:1973-08-03 ;
+    ies:isStartOf :AQD0276_person .
+
+:AQD0277_person_BIRTH_001 a ies:BirthState ;
+    ies:inPeriod iso8601:1964-04-30 ;
+    ies:isStartOf :AQD0277_person .
+
+:AQD0311_person_BIRTH_001 a ies:BirthState ;
+    ies:inPeriod iso8601:1968-02-10 ;
+    ies:isStartOf :AQD0311_person .
+
+:AQD0313_person_BIRTH_001 a ies:BirthState ;
+    ies:inPeriod iso8601:1965-11-08 ;
+    ies:isStartOf :AQD0313_person .
+
+:AQD0320_person_BIRTH_001 a ies:BirthState ;
+    ies:inPeriod iso8601:1982-05-03 ;
+    ies:isStartOf :AQD0320_person .
+
+:AQD0321_person_BIRTH_001 a ies:BirthState ;
+    ies:inPeriod iso8601:1965-11-23 ;
+    ies:isStartOf :AQD0321_person .
+
+:AQD0371_person_BIRTH_001 a ies:BirthState ;
+    ies:inPeriod iso8601:1969-07-14 ;
+    ies:isStartOf :AQD0371_person .
+
+:AQD0375_person_BIRTH_001 a ies:BirthState ;
+    ies:inPeriod iso8601:1991-10-05 ;
+    ies:isStartOf :AQD0375_person .
+
+iso8601:1961-11-17 a ies:ParticularPeriod ;
+    ies:iso8601PeriodRepresentation "1961-11-17"^^xsd:string .
+
+iso8601:1964-04-30 a ies:ParticularPeriod ;
+    ies:iso8601PeriodRepresentation "1964-04-30"^^xsd:string .
+
+iso8601:1964-12-04 a ies:ParticularPeriod ;
+    ies:iso8601PeriodRepresentation "1964-12-04"^^xsd:string .
+
+iso8601:1965-11-08 a ies:ParticularPeriod ;
+    ies:iso8601PeriodRepresentation "1965-11-08"^^xsd:string .
+
+iso8601:1965-11-23 a ies:ParticularPeriod ;
+    ies:iso8601PeriodRepresentation "1965-11-23"^^xsd:string .
+
+iso8601:1966-10-28 a ies:ParticularPeriod ;
+    ies:iso8601PeriodRepresentation "1966-10-28"^^xsd:string .
+
+iso8601:1968-02-10 a ies:ParticularPeriod ;
+    ies:iso8601PeriodRepresentation "1968-02-10"^^xsd:string .
+
+iso8601:1968-04-03 a ies:ParticularPeriod ;
+    ies:iso8601PeriodRepresentation "1968-04-03"^^xsd:string .
+
+iso8601:1969-02-05 a ies:ParticularPeriod ;
+    ies:iso8601PeriodRepresentation "1969-02-05"^^xsd:string .
+
+iso8601:1969-07-14 a ies:ParticularPeriod ;
+    ies:iso8601PeriodRepresentation "1969-07-14"^^xsd:string .
+
+iso8601:1970-07-14 a ies:ParticularPeriod ;
+    ies:iso8601PeriodRepresentation "1970-07-14"^^xsd:string .
+
+iso8601:1973-01-15 a ies:ParticularPeriod ;
+    ies:iso8601PeriodRepresentation "1973-01-15"^^xsd:string .
+
+iso8601:1973-08-03 a ies:ParticularPeriod ;
+    ies:iso8601PeriodRepresentation "1973-08-03"^^xsd:string .
+
+iso8601:1974-12-11 a ies:ParticularPeriod ;
+    ies:iso8601PeriodRepresentation "1974-12-11"^^xsd:string .
+
+iso8601:1975-11-20 a ies:ParticularPeriod ;
+    ies:iso8601PeriodRepresentation "1975-11-20"^^xsd:string .
+
+iso8601:1977-10-21 a ies:ParticularPeriod ;
+    ies:iso8601PeriodRepresentation "1977-10-21"^^xsd:string .
+
+iso8601:1982-05-03 a ies:ParticularPeriod ;
+    ies:iso8601PeriodRepresentation "1982-05-03"^^xsd:string .
+
+iso8601:1983-05-10 a ies:ParticularPeriod ;
+    ies:iso8601PeriodRepresentation "1983-05-10"^^xsd:string .
+
+iso8601:1986-03-09 a ies:ParticularPeriod ;
+    ies:iso8601PeriodRepresentation "1986-03-09"^^xsd:string .
+
+iso8601:1986-05-09 a ies:ParticularPeriod ;
+    ies:iso8601PeriodRepresentation "1986-05-09"^^xsd:string .
+
+iso8601:1991-10-05 a ies:ParticularPeriod ;
+    ies:iso8601PeriodRepresentation "1991-10-05"^^xsd:string .
+
+:820ccf1069d644e59869dc4c54f2cb4c_000002 a ies:Identifier ;
+    ies:representationValue "M408665"^^xsd:string .
+
+:820ccf1069d644e59869dc4c54f2cb4c_000005 a ies:Identifier ;
+    ies:representationValue "P182583"^^xsd:string .
+
+:820ccf1069d644e59869dc4c54f2cb4c_000008 a ies:Identifier ;
+    ies:representationValue "W342058"^^xsd:string .
+
+:820ccf1069d644e59869dc4c54f2cb4c_000011 a ies:Identifier .
+
+:820ccf1069d644e59869dc4c54f2cb4c_000014 a ies:Identifier ;
+    ies:representationValue "M788439"^^xsd:string .
+
+:820ccf1069d644e59869dc4c54f2cb4c_000017 a ies:Identifier ;
+    ies:representationValue "L723315"^^xsd:string .
+
+:820ccf1069d644e59869dc4c54f2cb4c_000020 a ies:Identifier ;
+    ies:representationValue "M174950"^^xsd:string .
+
+:820ccf1069d644e59869dc4c54f2cb4c_000023 a ies:Identifier ;
+    ies:representationValue "P229856"^^xsd:string .
+
+:820ccf1069d644e59869dc4c54f2cb4c_000026 a ies:Identifier ;
+    ies:representationValue "M307707"^^xsd:string .
+
+:820ccf1069d644e59869dc4c54f2cb4c_000029 a ies:Identifier ;
+    ies:representationValue "L 191609"^^xsd:string .
+
+:820ccf1069d644e59869dc4c54f2cb4c_000032 a ies:Identifier .
+
+:820ccf1069d644e59869dc4c54f2cb4c_000035 a ies:Identifier .
+
+:820ccf1069d644e59869dc4c54f2cb4c_000038 a ies:Identifier ;
+    ies:representationValue "L335915"^^xsd:string .
+
+:820ccf1069d644e59869dc4c54f2cb4c_000041 a ies:Identifier .
+
+:820ccf1069d644e59869dc4c54f2cb4c_000044 a ies:Identifier ;
+    ies:representationValue "L851940"^^xsd:string .
+
+:820ccf1069d644e59869dc4c54f2cb4c_000047 a ies:Identifier ;
+    ies:representationValue "K929139"^^xsd:string .
+
+:820ccf1069d644e59869dc4c54f2cb4c_000050 a ies:Identifier ;
+    ies:representationValue "G557170"^^xsd:string .
+
+:820ccf1069d644e59869dc4c54f2cb4c_000053 a ies:Identifier ;
+    ies:representationValue "Z050399"^^xsd:string .
+
+:820ccf1069d644e59869dc4c54f2cb4c_000056 a ies:Identifier ;
+    ies:representationValue "E590976"^^xsd:string .
+
+:820ccf1069d644e59869dc4c54f2cb4c_000059 a ies:Identifier ;
+    ies:representationValue "G737411"^^xsd:string .
+
+:820ccf1069d644e59869dc4c54f2cb4c_000062 a ies:Identifier .
+
+:AQD0119_person a ies:Person ;
+    ies:hasName :AQD0119_person_GIVENNAME_001,
+        :AQD0119_person_SURNAME_001 ;
+    ies:isIdentifiedBy :820ccf1069d644e59869dc4c54f2cb4c_000002 ;
+    tont:primaryName "Steve HAMDI"^^xsd:string .
+
+:AQD0119_person_GIVENNAME_001 a ies:GivenName ;
+    ies:representationValue "ADEL, BEN AL-AZHAR, BEN YOUSSEF"^^xsd:string .
+
+:AQD0119_person_SURNAME_001 a ies:Surname ;
+    ies:representationValue "HAMDI"^^xsd:string .
+
+:AQD0129_person a ies:Person ;
+    ies:hasName :AQD0129_person_GIVENNAME_001,
+        :AQD0129_person_SURNAME_001 ;
+    ies:isIdentifiedBy :820ccf1069d644e59869dc4c54f2cb4c_000005 ;
+    tont:primaryName "Steve ROUINE"^^xsd:string .
+
+:AQD0129_person_GIVENNAME_001 a ies:GivenName ;
+    ies:representationValue "AL-AZHAR, BEN KHALIFA, BEN AHMED"^^xsd:string .
+
+:AQD0129_person_SURNAME_001 a ies:Surname ;
+    ies:representationValue "ROUINE"^^xsd:string .
+
+:AQD0131_person a ies:Person ;
+    ies:hasName :AQD0131_person_GIVENNAME_001,
+        :AQD0131_person_SURNAME_001 ;
+    ies:isIdentifiedBy :820ccf1069d644e59869dc4c54f2cb4c_000008 ;
+    tont:primaryName "Steve OUNI HARZI"^^xsd:string .
+
+:AQD0131_person_GIVENNAME_001 a ies:GivenName ;
+    ies:representationValue "ALI, BEN TAHER, BEN FALEH"^^xsd:string .
+
+:AQD0131_person_SURNAME_001 a ies:Surname ;
+    ies:representationValue "OUNI HARZI"^^xsd:string .
+
+:AQD0171_person a ies:Person ;
+    ies:hasName :AQD0171_person_GIVENNAME_001,
+        :AQD0171_person_SURNAME_001 ;
+    ies:isIdentifiedBy :820ccf1069d644e59869dc4c54f2cb4c_000011 ;
+    tont:primaryName "Steve BOUGHANEMI"^^xsd:string .
+
+:AQD0171_person_GIVENNAME_001 a ies:GivenName ;
+    ies:representationValue "FAYCAL"^^xsd:string .
+
+:AQD0171_person_SURNAME_001 a ies:Surname ;
+    ies:representationValue "BOUGHANEMI"^^xsd:string .
+
+:AQD0181_person a ies:Person ;
+    ies:hasName :AQD0181_person_GIVENNAME_001,
+        :AQD0181_person_SURNAME_001 ;
+    ies:isIdentifiedBy :820ccf1069d644e59869dc4c54f2cb4c_000014 ;
+    tont:primaryName "Steve AL-LOUBIRI"^^xsd:string .
+
+:AQD0181_person_GIVENNAME_001 a ies:GivenName ;
+    ies:representationValue "HABIB, BEN, AHMED"^^xsd:string .
+
+:AQD0181_person_SURNAME_001 a ies:Surname ;
+    ies:representationValue "AL-LOUBIRI"^^xsd:string .
+
+:AQD0189_person a ies:Person ;
+    ies:hasName :AQD0189_person_GIVENNAME_001,
+        :AQD0189_person_SURNAME_001 ;
+    ies:isIdentifiedBy :820ccf1069d644e59869dc4c54f2cb4c_000017 ;
+    tont:primaryName "Steve BOUYEHIA"^^xsd:string .
+
+:AQD0189_person_GIVENNAME_001 a ies:GivenName ;
+    ies:representationValue "HAMADI, BEN ABDUL AZIZ, BEN ALI"^^xsd:string .
+
+:AQD0189_person_SURNAME_001 a ies:Surname ;
+    ies:representationValue "BOUYEHIA"^^xsd:string .
+
+:AQD0204_person a ies:Person ;
+    ies:hasName :AQD0204_person_GIVENNAME_001,
+        :AQD0204_person_SURNAME_001 ;
+    ies:isIdentifiedBy :820ccf1069d644e59869dc4c54f2cb4c_000020 ;
+    tont:primaryName "Steve ZARKAOUI"^^xsd:string .
+
+:AQD0204_person_GIVENNAME_001 a ies:GivenName ;
+    ies:representationValue "IMED, BEN MEKKI"^^xsd:string .
+
+:AQD0204_person_SURNAME_001 a ies:Surname ;
+    ies:representationValue "ZARKAOUI"^^xsd:string .
+
+:AQD0211_person a ies:Person ;
+    ies:hasName :AQD0211_person_GIVENNAME_001,
+        :AQD0211_person_SURNAME_001 ;
+    ies:isIdentifiedBy :820ccf1069d644e59869dc4c54f2cb4c_000023 ;
+    tont:primaryName "Steve AL-HAMRAOUI"^^xsd:string .
+
+:AQD0211_person_GIVENNAME_001 a ies:GivenName ;
+    ies:representationValue "KAMAL, BEN MAOELDI, BEN HASSAN"^^xsd:string .
+
+:AQD0211_person_SURNAME_001 a ies:Surname ;
+    ies:representationValue "AL-HAMRAOUI"^^xsd:string .
+
+:AQD0230_person a ies:Person ;
+    ies:hasName :AQD0230_person_GIVENNAME_001,
+        :AQD0230_person_SURNAME_001 ;
+    ies:isIdentifiedBy :820ccf1069d644e59869dc4c54f2cb4c_000026 ;
+    tont:primaryName "Steve KAMMOUN"^^xsd:string .
+
+:AQD0230_person_GIVENNAME_001 a ies:GivenName ;
+    ies:representationValue "MEHDI, BEN MOHAMED, BEN MOHAMED"^^xsd:string .
+
+:AQD0230_person_SURNAME_001 a ies:Surname ;
+    ies:representationValue "KAMMOUN"^^xsd:string .
+
+:AQD0239_person a ies:Person ;
+    ies:hasName :AQD0239_person_GIVENNAME_001,
+        :AQD0239_person_SURNAME_001 ;
+    ies:isIdentifiedBy :820ccf1069d644e59869dc4c54f2cb4c_000029 ;
+    tont:primaryName "Steve AL-AOUADI"^^xsd:string .
+
+:AQD0239_person_GIVENNAME_001 a ies:GivenName ;
+    ies:representationValue "MOHAMED, BEN BELGACEM, BEN ABDALLAH"^^xsd:string .
+
+:AQD0239_person_SURNAME_001 a ies:Surname ;
+    ies:representationValue "AL-AOUADI"^^xsd:string .
+
+:AQD0241_person a ies:Person ;
+    ies:hasName :AQD0241_person_GIVENNAME_001,
+        :AQD0241_person_SURNAME_001 ;
+    ies:isIdentifiedBy :820ccf1069d644e59869dc4c54f2cb4c_000032 ;
+    tont:primaryName "Steve LAKHAL"^^xsd:string .
+
+:AQD0241_person_GIVENNAME_001 a ies:GivenName ;
+    ies:representationValue "MOHAMED"^^xsd:string .
+
+:AQD0241_person_SURNAME_001 a ies:Surname ;
+    ies:representationValue "LAKHAL"^^xsd:string .
+
+:AQD0253_person a ies:Person ;
+    ies:hasName :AQD0253_person_GIVENNAME_001,
+        :AQD0253_person_SURNAME_001 ;
+    ies:isIdentifiedBy :820ccf1069d644e59869dc4c54f2cb4c_000035 ;
+    tont:primaryName "Steve BEN HELAL"^^xsd:string .
+
+:AQD0253_person_GIVENNAME_001 a ies:GivenName ;
+    ies:representationValue "Mounir, Ben Dhaou, Ben Brahim"^^xsd:string .
+
+:AQD0253_person_SURNAME_001 a ies:Surname ;
+    ies:representationValue "BEN HELAL"^^xsd:string .
+
+:AQD0256_person a ies:Person ;
+    ies:hasName :AQD0256_person_GIVENNAME_001,
+        :AQD0256_person_SURNAME_001 ;
+    ies:isIdentifiedBy :820ccf1069d644e59869dc4c54f2cb4c_000038 ;
+    tont:primaryName "Steve ESSAADI"^^xsd:string .
+
+:AQD0256_person_GIVENNAME_001 a ies:GivenName ;
+    ies:representationValue "MOUSSA, BEN OMAR, BEN ALI"^^xsd:string .
+
+:AQD0256_person_SURNAME_001 a ies:Surname ;
+    ies:representationValue "ESSAADI"^^xsd:string .
+
+:AQD0276_person a ies:Person ;
+    ies:hasName :AQD0276_person_GIVENNAME_001,
+        :AQD0276_person_SURNAME_001 ;
+    ies:isIdentifiedBy :820ccf1069d644e59869dc4c54f2cb4c_000041 ;
+    tont:primaryName "Steve SAHRAOUI"^^xsd:string .
+
+:AQD0276_person_GIVENNAME_001 a ies:GivenName ;
+    ies:representationValue "NESSIM, BEN ROMDHANE"^^xsd:string .
+
+:AQD0276_person_SURNAME_001 a ies:Surname ;
+    ies:representationValue "SAHRAOUI"^^xsd:string .
+
+:AQD0277_person a ies:Person ;
+    ies:hasName :AQD0277_person_GIVENNAME_001,
+        :AQD0277_person_SURNAME_001 ;
+    ies:isIdentifiedBy :820ccf1069d644e59869dc4c54f2cb4c_000044 ;
+    tont:primaryName "Steve AL-DRISSI"^^xsd:string .
+
+:AQD0277_person_GIVENNAME_001 a ies:GivenName ;
+    ies:representationValue "NOUREDDINE, BEN ALI, BEN BELKASSEM"^^xsd:string .
+
+:AQD0277_person_SURNAME_001 a ies:Surname ;
+    ies:representationValue "AL-DRISSI"^^xsd:string .
+
+:AQD0311_person a ies:Person ;
+    ies:hasName :AQD0311_person_GIVENNAME_001,
+        :AQD0311_person_SURNAME_001 ;
+    ies:isIdentifiedBy :820ccf1069d644e59869dc4c54f2cb4c_000047 ;
+    tont:primaryName "Steve ELSSEID"^^xsd:string .
+
+:AQD0311_person_GIVENNAME_001 a ies:GivenName ;
+    ies:representationValue "SAMI, BEN KHAMIS, BEN SALEH"^^xsd:string .
+
+:AQD0311_person_SURNAME_001 a ies:Surname ;
+    ies:representationValue "ELSSEID"^^xsd:string .
+
+:AQD0313_person a ies:Person ;
+    ies:hasName :AQD0313_person_GIVENNAME_001,
+        :AQD0313_person_SURNAME_001 ;
+    ies:isIdentifiedBy :820ccf1069d644e59869dc4c54f2cb4c_000050 ;
+    tont:primaryName "Steve BEN HASSINE"^^xsd:string .
+
+:AQD0313_person_GIVENNAME_001 a ies:GivenName ;
+    ies:representationValue "Seifallah, Ben Omar, Ben Mohamed"^^xsd:string .
+
+:AQD0313_person_SURNAME_001 a ies:Surname ;
+    ies:representationValue "BEN HASSINE"^^xsd:string .
+
+:AQD0320_person a ies:Person ;
+    ies:hasName :AQD0320_person_GIVENNAME_001,
+        :AQD0320_person_SURNAME_001 ;
+    ies:isIdentifiedBy :820ccf1069d644e59869dc4c54f2cb4c_000053 ;
+    tont:primaryName "Steve OUNI HARZI"^^xsd:string .
+
+:AQD0320_person_GIVENNAME_001 a ies:GivenName ;
+    ies:representationValue "Tarak, Ben Taher, Ben Faleh"^^xsd:string .
+
+:AQD0320_person_SURNAME_001 a ies:Surname ;
+    ies:representationValue "OUNI HARZI"^^xsd:string .
+
+:AQD0321_person a ies:Person ;
+    ies:hasName :AQD0321_person_GIVENNAME_001,
+        :AQD0321_person_SURNAME_001 ;
+    ies:isIdentifiedBy :820ccf1069d644e59869dc4c54f2cb4c_000056 ;
+    tont:primaryName "Steve AL-MAAROUFI"^^xsd:string .
+
+:AQD0321_person_GIVENNAME_001 a ies:GivenName ;
+    ies:representationValue "TAREK, BEN HABIB, BEN AL-TOUMI"^^xsd:string .
+
+:AQD0321_person_SURNAME_001 a ies:Surname ;
+    ies:representationValue "AL-MAAROUFI"^^xsd:string .
+
+:AQD0371_person a ies:Person ;
+    ies:hasName :AQD0371_person_GIVENNAME_001,
+        :AQD0371_person_SURNAME_001 ;
+    ies:isIdentifiedBy :820ccf1069d644e59869dc4c54f2cb4c_000059 ;
+    tont:primaryName "Steve AL-AMDOUNI"^^xsd:string .
+
+:AQD0371_person_GIVENNAME_001 a ies:GivenName ;
+    ies:representationValue "MEHREZ, BEN MAHMOUD, BEN SASSI"^^xsd:string .
+
+:AQD0371_person_SURNAME_001 a ies:Surname ;
+    ies:representationValue "AL-AMDOUNI"^^xsd:string .
+
+:AQD0375_person a ies:Person ;
+    ies:hasName :AQD0375_person_GIVENNAME_001,
+        :AQD0375_person_SURNAME_001 ;
+    ies:isIdentifiedBy :820ccf1069d644e59869dc4c54f2cb4c_000062 ;
+    tont:primaryName "Steve al-Qizani"^^xsd:string .
+
+:AQD0375_person_GIVENNAME_001 a ies:GivenName ;
+    ies:representationValue "Ashraf"^^xsd:string .
+
+:AQD0375_person_SURNAME_001 a ies:Surname ;
+    ies:representationValue "al-Qizani"^^xsd:string .
+

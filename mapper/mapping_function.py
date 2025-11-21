@@ -41,5 +41,14 @@ def map_func(item):
 
     return tool.graph.serialize(format="turtle")
 
+if __name__ == "__main__":
+    # to save data locally for testing
+    with open("adapter/sanctioned_individuals.csv", "r") as f:
+        data = f.read()
+    
+    with open("mapper/output.ttl", "w") as out:
+        out.write(map_func(data))
+    
+
 
 
