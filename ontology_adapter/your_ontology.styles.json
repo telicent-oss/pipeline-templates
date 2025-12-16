@@ -1,0 +1,14 @@
+{
+    //replace key with URI of your new class. Must be the same as the one in your ontology RDF file
+    "http://harrypotter.com/ontology#MagicWand": { 
+        "dark": "#242400",                          //hex value for background colour of node
+        "light": "#FFFD04",                         //hex value for border colour of node
+        "size": "M",                                // NOT CURRENTLY USED
+        "shape": "round-rectangle",                 // NOT CURRENTLY USED
+        "faIcon": "fa-solid fa-wand-magic-sparkles",// replace with desired font-awesome icon
+        "faUnicode": "\ue2ca",                      // replace with desired unicode from font-awesome
+        "faClass": "fa-solid",                      // NOT CURRENTLY USED
+        "base_type": "ies:Device",                  // NOT CURRENTLY USED
+        "short_name": "hp:MagicWand"                // NOT CURRENTLY USED
+    }
+}
