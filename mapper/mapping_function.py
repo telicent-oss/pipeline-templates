@@ -1,4 +1,4 @@
-import ies_tool.ies_tool as ies
+# import ies_tool.ies_tool as ies ### use if you are mapping data to IES
 
 # add your mapping/enrichments/resolving in here
 def map_func(item):
