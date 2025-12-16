@@ -7,7 +7,6 @@ import json
 # Mapper Configuration
 load_dotenv()
 config = Configurator()
-BROKER = config.get("BOOTSTRAP_SERVERS", required = True)
 TARGET_TOPIC = config.get(
     "TARGET_TOPIC",
     required=True,

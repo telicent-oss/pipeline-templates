@@ -10,7 +10,6 @@ from mapper.mapping_function import map_func
 load_dotenv()
 # Mapper Configuration
 config = Configurator()
-BROKER = config.get("BOOTSTRAP_SERVERS", required = True)
 SOURCE_TOPIC = config.get("SOURCE_TOPIC", required=True,
                     description="Specifies the Kafka topic the mapper ingests from.")
 TARGET_TOPIC = config.get("TARGET_TOPIC", required=True,
@@ -28,7 +27,7 @@ def get_headers(previous_headers):
     )
     return output
 
-# Function each record on the source topic is passed to.
+# Function each record on the source topic is passed to. This is fed into the Mapper initialiser 
 def mapping_function(record: Record) ->  Record | list[Record] | None:
 
     previous_headers = record.headers   # Header of source Record

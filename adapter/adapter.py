@@ -8,7 +8,6 @@ from typing import Iterable
 # Adapter Configuration
 load_dotenv()
 config = Configurator()
-BROKER = config.get("BOOTSTRAP_SERVERS", required = True)
 TARGET_TOPIC = config.get(
     "TARGET_TOPIC", required=True,
     description="Specifies the Kafka topic the adaptor pushes its output to",
@@ -33,7 +32,7 @@ def create_core_record(data, security_label):
     )
 
 
-# process data and 
+# get data from some where and create CORE records. This is fed into the Adapter initialiser 
 def generate_records_from_source() -> Iterable[Record]:
     """
     TODO: replace with logic associated to sourcing and preparing
@@ -41,13 +40,13 @@ def generate_records_from_source() -> Iterable[Record]:
     or getting data from an external system or API
     """
     
-    with open(file_path) as file:
-        csv_content = file.read()
-        yield create_core_record(
-            data = None,        # TODO: replace with the results of the above data sourcing
-            security_label="*"  # TODO: * allows anyone access to this data, replace with better label
-                                # see labels.py on how to create better label
-        )
+    # TODO add your logic here
+
+    yield create_core_record(
+        data = None,        # TODO: replace with the results of the above data sourcing
+        security_label="*"  # TODO: * allows anyone access to this data, replace with better label
+                            # see labels.py on how to create better label
+    )
 
 
 # Create a sink and adapter
