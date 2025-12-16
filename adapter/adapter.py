@@ -1,5 +1,5 @@
 from telicent_lib.sinks import KafkaSink
-from telicent_lib import AutomaticAdapter, Record, RecordUtils, SimpleDataSet
+from telicent_lib import AutomaticAdapter, Record, RecordUtils
 from telicent_lib.config import Configurator
 from dotenv import load_dotenv
 from typing import Iterable
@@ -51,17 +51,11 @@ def generate_records_from_source() -> Iterable[Record]:
 
 # Create a sink and adapter
 target = KafkaSink(topic = TARGET_TOPIC)
-dataset = SimpleDataSet(
-    dataset_id='my-data-set',    # TODO: replace with an ID associated to your data source
-    title='myfile.csv',          # TODO: replace with human-readable to denote data source
-    source_mime_type='mime/type' # TODO: replace with source data's MIME type, which may differ from 
-                                 # the Content-Type above if transformed before Kafka ingest
-)
 adapter = AutomaticAdapter(
     name=ADAPTER_NAME,
     target=target, 
     adapter_function=generate_records_from_source, 
-    dataset=dataset
+    distribution_id="my-data-distribution-id" # TODO: replace with your own. This is used for the data catalog
 )
 
 # Call run() to run the adapter
