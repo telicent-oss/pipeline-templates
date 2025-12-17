@@ -1,9 +1,10 @@
+# Here you can build out either your IDH or EDH security labels
 from telicent_labels import SecurityLabelBuilder, TelicentSecurityLabelsV2, IDHModel
 import uuid
 from datetime import UTC, datetime
 
 
-# Information Data Header is a simpler modal to specify security access
+# Information Data Header is a simpler model to specify security access
 # BUT, currently does not support OR Groups. Use TelicentSecurityLabelsV2 for that
 def create_security_label_using_TelicentSCV2():
     label = SecurityLabelBuilder()

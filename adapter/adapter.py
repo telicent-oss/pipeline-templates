@@ -3,7 +3,8 @@ from telicent_lib import AutomaticAdapter, Record, RecordUtils
 from telicent_lib.config import Configurator
 from dotenv import load_dotenv
 from typing import Iterable
-
+# uncomment below line if you want to use your own labels - see labels.py
+# from adapter.labels import create_security_label_using_idh, create_security_label_using_TelicentSCV2
 
 # Adapter Configuration
 load_dotenv()
