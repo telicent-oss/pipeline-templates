@@ -3,6 +3,8 @@ from telicent_lib import AutomaticAdapter, Record, RecordUtils
 from telicent_lib.config import Configurator
 from dotenv import load_dotenv
 from typing import Iterable
+import csv
+import json
 # uncomment below line if you want to use your own labels - see labels.py
 # from adapter.labels import create_security_label_using_idh, create_security_label_using_TelicentSCV2
 
@@ -18,11 +20,14 @@ ADAPTER_NAME = config.get(
     description="Specifies the name of the adapter"
 )
 
+security_label = "*" 
+file_path = "data/sanctioned_individuals.csv"
+
 # Create a Telicent CORE record
 def create_core_record(data, security_label):
     headers = RecordUtils.to_headers(
         {
-            "Content-Type": "mine/type", #TODO: replace with MIME type of the data payload
+            "Content-Type": "text/csv", 
             "Security-Label": security_label,
         }
     )
@@ -40,14 +45,20 @@ def generate_records_from_source() -> Iterable[Record]:
     your data for ingest. This could be getting data from a file
     or getting data from an external system or API
     """
-    
-    # TODO add your logic here
 
-    yield create_core_record(
-        data = None,        # TODO: replace with the results of the above data sourcing
-        security_label="*"  # TODO: * allows anyone access to this data, replace with better label
-                            # see labels.py on how to create better label
-    )
+    with open(file_path, 'r', encoding='utf-8') as csvfile:
+        reader = csv.DictReader(csvfile)
+        
+        for row in reader:
+            # Send each row as JSON
+            data = json.dumps(row).encode('utf-8')
+    
+
+            yield create_core_record(
+                data = data,        
+                security_label=security_label
+                                    
+            )
 
 
 # Create a sink and adapter
@@ -56,7 +67,6 @@ adapter = AutomaticAdapter(
     name=ADAPTER_NAME,
     target=target, 
     adapter_function=generate_records_from_source, 
-    distribution_id="my-data-distribution-id" # TODO: replace with your own or delete. This is used for the data catalog
 )
 
 # Call run() to run the adapter
