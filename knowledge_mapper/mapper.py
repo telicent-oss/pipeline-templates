@@ -1,10 +1,9 @@
-from __future__ import annotations
 from telicent_lib.sinks import KafkaSink
 from telicent_lib.sources import KafkaSource
 from telicent_lib.config import Configurator
 from telicent_lib import Mapper, Record, RecordUtils
 from dotenv import load_dotenv
-from mapper.mapping_function import map_func
+from knowledge_mapper.mapping_function import map_func
 
 
 load_dotenv()

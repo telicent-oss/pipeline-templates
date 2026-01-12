@@ -1,4 +1,5 @@
 # import ies_tool.ies_tool as ies ### use if you are mapping data to IES
+from io import StringIO
 import polars as pl
 
 # add your mapping/enrichments/resolving in here
@@ -11,7 +12,7 @@ def clean_date_column(df: pl.DataFrame) -> pl.DataFrame:
     )
     return df
 
-def map_func(csv_path: str):
+def map_func(item):
     """
     Reads a CSV file, cleans it, and returns the cleaned DataFrame.
     Optionally writes to an output path.
@@ -22,8 +23,8 @@ def map_func(csv_path: str):
     """
     
     # Read CSV
-    df = pl.read_csv(csv_path)
-    
+    csv = StringIO(item)
+    df = pl.read_csv(csv)    
     # Clean date of birth (replace / with -)
     df = clean_date_column(df)
     
@@ -32,8 +33,8 @@ def map_func(csv_path: str):
         pl.col('first_name').str.strip_chars().str.to_titlecase().alias('first_name'),
         pl.col('surname').str.strip_chars().str.to_titlecase().alias('surname')
     ])
-    
-    return df
+
+    return df.write_csv().encode("utf-8")
 
 if __name__ == "__main__":
     test_data = 'data/sanctioned_individuals.csv'
