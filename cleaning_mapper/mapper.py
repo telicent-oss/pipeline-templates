@@ -19,9 +19,7 @@ TARGET_TOPIC = config.get("TARGET_TOPIC", required=True,
 def get_headers(previous_headers):
     output = RecordUtils.to_headers(
         headers = {
-            "Content-Type": "mime/type", #TODO: replace with MIME type of the data payload
-                                         #TODO: is there are other headers you need to replace
-                                         # e.g Security-Label 
+            "Content-Type": "application/json",                                
         },
         existing_headers = previous_headers 
     )

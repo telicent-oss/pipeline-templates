@@ -1,21 +1,41 @@
 # import ies_tool.ies_tool as ies ### use if you are mapping data to IES
+import polars as pl
 
 # add your mapping/enrichments/resolving in here
-def map_func(item):
+def clean_date_column(df: pl.DataFrame) -> pl.DataFrame:
     """
-    TODO: replace with logic associated to some sort of 
-    transformation you want to make to the source data
-    e.g. cleansing, enrichment, resolving and/or mapping
-    For mapping to knowledge, this is where your code
-    to create RDF goes.
+    Convert date column from yyyy/mm/dd to yyyy-mm-dd format.
     """
-    # TODO add your logic here
-    mapped_item = item # currently feed back the source item as the mapped item
-    return mapped_item
+    df = df.with_columns(
+        pl.col('date_of_birth').str.replace_all('/', '-').alias('date_of_birth')
+    )
+    return df
 
-# this section can be used to conduct local testing of the mapping_function by just running this file.
-if __name__ == "__main__":
-
-    test_data = ""
-    mapped_data = map_func(test_data)
-    print(mapped_data)
+def map_func(csv_path: str, output_path: str = None):
+    """
+    Reads a CSV file, cleans it, and returns the cleaned DataFrame.
+    Optionally writes to an output path.
+    
+    Cleaning operations:
+    - Converting dates from yyyy/mm/dd to yyyy-mm-dd format
+    - Converting names to title case
+    """
+    
+    # Read CSV
+    df = pl.read_csv(csv_path)
+    
+    # Clean date of birth (replace / with -)
+    df = clean_date_column(df)
+    
+    # Clean names to title case
+    df = df.with_columns([
+        pl.col('first_name').str.strip_chars().str.to_titlecase().alias('first_name'),
+        pl.col('surname').str.strip_chars().str.to_titlecase().alias('surname')
+    ])
+    
+    # Write to output if path provided
+    if output_path:
+        df.write_csv(output_path)
+        print(f"Cleaned CSV written to: {output_path}")
+    
+    return df

@@ -4,12 +4,13 @@ from telicent_lib.sources import KafkaSource
 from telicent_lib.config import Configurator
 from telicent_lib import Mapper, Record, RecordUtils
 from dotenv import load_dotenv
-from knowledge_mapper.mapping_function import map_func
+from mapper.mapping_function import map_func
 
 
 load_dotenv()
 # Mapper Configuration
 config = Configurator()
+BROKER = config.get("BOOTSTRAP_SERVERS", required = True)
 SOURCE_TOPIC = config.get("SOURCE_TOPIC", required=True,
                     description="Specifies the Kafka topic the mapper ingests from.")
 TARGET_TOPIC = config.get("TARGET_TOPIC", required=True,
@@ -19,16 +20,15 @@ TARGET_TOPIC = config.get("TARGET_TOPIC", required=True,
 def get_headers(previous_headers):
     output = RecordUtils.to_headers(
         headers = {
-            "Content-Type": "mime/type", #TODO: replace with MIME type of the data payload
-                                         #TODO: is there are other headers you need to replace
-                                         # e.g Security-Label 
+            "Content-Type": "text/turtle",
         },
         existing_headers = previous_headers 
     )
     return output
 
-# Function each record on the source topic is passed to. This is fed into the Mapper initialiser 
+# Function each record on the source topic is passed to.
 def mapping_function(record: Record) ->  Record | list[Record] | None:
+    print("Mapping Started...")
 
     previous_headers = record.headers   # Header of source Record
     data = record.value                 # Value/Payload of source Record
@@ -40,6 +40,7 @@ def mapping_function(record: Record) ->  Record | list[Record] | None:
             record.key,                     # Key of the Record
             mapped_data,                    # Value/Payload of the Record
         )
+        print("Completed mapping of item")
         return mapped_record
     except Exception as e :
         print("Error mapping object with exception {exp}".format(exp=e)) 
