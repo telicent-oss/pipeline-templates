@@ -45,6 +45,6 @@ def map_func(item):
 # this section can be used to conduct local testing of the mapping_function by just running this file.
 if __name__ == "__main__":
 
-    test_data = ""
+    test_data = 'data/sanctioned_individuals.csv'
     mapped_data = map_func(test_data)
     print(mapped_data)
