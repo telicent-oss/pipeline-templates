@@ -11,7 +11,7 @@ def clean_date_column(df: pl.DataFrame) -> pl.DataFrame:
     )
     return df
 
-def map_func(csv_path: str, output_path: str = None):
+def map_func(csv_path: str):
     """
     Reads a CSV file, cleans it, and returns the cleaned DataFrame.
     Optionally writes to an output path.
@@ -33,9 +33,10 @@ def map_func(csv_path: str, output_path: str = None):
         pl.col('surname').str.strip_chars().str.to_titlecase().alias('surname')
     ])
     
-    # Write to output if path provided
-    if output_path:
-        df.write_csv(output_path)
-        print(f"Cleaned CSV written to: {output_path}")
-    
     return df
+
+if __name__ == "__main__":
+    test_data = 'data/sanctioned_individuals.csv'
+    cleaned_df = map_func(test_data)
+    with open('data/sanctioned_individuals.cleaned.csv', 'w') as f:
+        f.write(cleaned_df.write_csv())
