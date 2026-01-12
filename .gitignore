@@ -167,6 +167,3 @@ cython_debug/
 #Ruff
 .ruff_cache
 
-# Ignore all files in /adapter/data
-/adapter/data/*
-/data

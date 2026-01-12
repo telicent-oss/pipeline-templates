@@ -4,7 +4,7 @@ from telicent_lib.sources import KafkaSource
 from telicent_lib.config import Configurator
 from telicent_lib import Mapper, Record, RecordUtils
 from dotenv import load_dotenv
-from mapper.mapping_function import map_func
+from knowledge_mapper.mapping_function import map_func
 
 
 load_dotenv()
@@ -21,7 +21,7 @@ def get_headers(previous_headers):
         headers = {
             "Content-Type": "mime/type", #TODO: replace with MIME type of the data payload
                                          #TODO: is there are other headers you need to replace
-                                         # e.g Security-Label, and then here. 
+                                         # e.g Security-Label 
         },
         existing_headers = previous_headers 
     )

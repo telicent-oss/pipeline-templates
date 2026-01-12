@@ -56,7 +56,7 @@ adapter = AutomaticAdapter(
     name=ADAPTER_NAME,
     target=target, 
     adapter_function=generate_records_from_source, 
-    distribution_id="my-data-distribution-id" # TODO: replace with your own. This is used for the data catalog
+    distribution_id="my-data-distribution-id" # TODO: replace with your own or delete. This is used for the data catalog
 )
 
 # Call run() to run the adapter
