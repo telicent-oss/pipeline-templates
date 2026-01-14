@@ -36,19 +36,16 @@ def create_core_record(data, security_label):
     )
 
 
-# get data from some where and create CORE records. This is fed into the Adapter initialiser 
+# get data from some where and create CORE records. 
+# This is fed into the Adapter initialiser 
 def generate_records_from_source() -> Iterable[Record]:
-    """
-    TODO: replace with logic associated to sourcing and preparing
-    your data for ingest. This could be getting data from a file
-    or getting data from an external system or API
-    """
 
+    # Read CSV file content
     with open(file_path) as file:
         csv_content = file.read()
         yield create_core_record(
             data=csv_content,
-            security_label="*" # Alternatively use the security_label
+            security_label="*" # security label as needed
         )
 
 

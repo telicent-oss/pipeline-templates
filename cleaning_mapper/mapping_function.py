@@ -1,4 +1,3 @@
-# import ies_tool.ies_tool as ies ### use if you are mapping data to IES
 from io import StringIO
 import polars as pl
 
@@ -24,7 +23,7 @@ def map_func(item):
     
     # Read CSV
     csv = StringIO(item)
-    df = pl.read_csv(csv)    
+    df = pl.read_csv(csv, truncate_ragged_lines=True)    
     # Clean date of birth (replace / with -)
     df = clean_date_column(df)
     
@@ -37,7 +36,8 @@ def map_func(item):
     return df.write_csv().encode("utf-8")
 
 if __name__ == "__main__":
-    test_data = 'data/sanctioned_individuals.csv'
-    cleaned_df = map_func(test_data)
-    with open('data/sanctioned_individuals.cleaned.csv', 'w') as f:
-        f.write(cleaned_df.write_csv())
+    test_data = pl.read_csv('data/sanctioned_individuals.csv')
+    item = test_data.write_csv()
+    cleaned_df = map_func(item)
+    with open('data/sanctioned_individuals_cleaned.csv', 'wb') as f:
+        f.write(cleaned_df)
