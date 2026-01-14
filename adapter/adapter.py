@@ -18,11 +18,14 @@ ADAPTER_NAME = config.get(
     description="Specifies the name of the adapter"
 )
 
+security_label = "*" 
+file_path = "data/sanctioned_individuals.csv"
+
 # Create a Telicent CORE record
 def create_core_record(data, security_label):
     headers = RecordUtils.to_headers(
         {
-            "Content-Type": "mine/type", #TODO: replace with MIME type of the data payload
+            "Content-Type": "application/json", 
             "Security-Label": security_label,
         }
     )
@@ -33,21 +36,17 @@ def create_core_record(data, security_label):
     )
 
 
-# get data from some where and create CORE records. This is fed into the Adapter initialiser 
+# get data from some where and create CORE records. 
+# This is fed into the Adapter initialiser 
 def generate_records_from_source() -> Iterable[Record]:
-    """
-    TODO: replace with logic associated to sourcing and preparing
-    your data for ingest. This could be getting data from a file
-    or getting data from an external system or API
-    """
-    
-    # TODO add your logic here
 
-    yield create_core_record(
-        data = None,        # TODO: replace with the results of the above data sourcing
-        security_label="*"  # TODO: * allows anyone access to this data, replace with better label
-                            # see labels.py on how to create better label
-    )
+    # Read CSV file content
+    with open(file_path) as file:
+        csv_content = file.read()
+        yield create_core_record(
+            data=csv_content,
+            security_label="*" # security label as needed
+        )
 
 
 # Create a sink and adapter
@@ -56,7 +55,6 @@ adapter = AutomaticAdapter(
     name=ADAPTER_NAME,
     target=target, 
     adapter_function=generate_records_from_source, 
-    distribution_id="my-data-distribution-id" # TODO: replace with your own. This is used for the data catalog
 )
 
 # Call run() to run the adapter

@@ -1,5 +1,6 @@
-telicent-lib==6.0.0
+telicent-lib==6.1.0
 telicent-ies-tool==2.0.0
 telicent-label-builder==0.1.7
 python-dotenv==1.2.1
-setuptools
+polars==1.37.0
+setuptools==80.9.0
